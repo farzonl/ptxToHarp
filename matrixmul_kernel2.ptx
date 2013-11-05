@@ -1,0 +1,49 @@
+	mul.lo.u32 	%r0, %r10, %r11;
+	add.u32 	%r1, %r9, %r12;
+	mul.lo.u32 	%r2, %r16, %r17;
+	add.u32 	%r30, %r26, %r29;
+	mul.lo.u32 	%r31, %r30, 4;
+	add.u32 	%r32, %r25, %r31;
+	mul.lo.u32 	%r37, %r35, %r36;
+	add.u32 	%r38, %r34, %r37;
+	mul.lo.u32 	%r39, %r38, 4;
+	add.u32 	%r40, %r33, %r39;
+	mad.f32 	%f6, %f4, %f5, %f3;
+	mad.f32		%f10, %f11, %f12, %f13;
+	neg.f32		%f10, %f10;
+	sad.f32		%r30, %r20, %r10, %r15;
+	abs.f32		%r80, %r81;
+	rem.f32		%r82, %r83, %r84;
+	div.f32		%r85, %r86, %r87;
+	min.f32		%r90, %r91, %r92;
+	popc.b32	%r95, %r96;
+	clz.b32		%r97, %r98;
+	clz.b64		%r99, %r100;
+
+	setp.eq.s32  %p0, %r20, %r21;
+	setp.ne.s32  %p0, %r20, %r21;
+	setp.lt.s32  %p0, %r20, %r21;	
+	setp.gt.s32  %p0, %r20, %r21;
+	setp.ge.s32  %p0, %r20, %r21;
+	setp.lo.s32  %p0, %r20, %r21;
+	setp.ls.s32  %p0, %r20, %r21;
+	setp.hi.s32  %p0, %r20, %r21;
+	setp.hs.s32  %p0, %r20, %r21;
+$LDWbeginblock_240_3:  
+	@!%p1 add.u32	%r110, %r111, %r112;
+	@%p3 abs.f32	%r113, %r114;
+	@%p2 bra    $L_0_2306;
+	bra exitLABEL1;		
+
+	exit;
+
+    ld.global.f32   %f4, [%r32+0];
+	ld.param.u32    %r25, [__cudaparm__Z15MatrixMulKernel6MatrixS_S__M+12];
+	ld.local.f32	%r5, [%r40];
+	ld.local.f32	%r6, [123];
+	ld.local.f32	%r7, [hello];
+	st.global.f32	[%32], %r7;
+	st.local.f32	[%33+4], %r8;
+	st.local.f32	[44], %r9;
+	st.param.u32	[__cudaParam+12], %r10;
+

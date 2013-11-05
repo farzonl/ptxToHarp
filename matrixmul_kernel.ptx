@@ -1,0 +1,187 @@
+	.entry _Z15MatrixMulKernel6MatrixS_S_ (
+		.param .align 4 .b8 __cudaparm__Z15MatrixMulKernel6MatrixS_S__M[16],
+		.param .align 4 .b8 __cudaparm__Z15MatrixMulKernel6MatrixS_S__N[16],
+		.param .align 4 .b8 __cudaparm__Z15MatrixMulKernel6MatrixS_S__P[16])
+	{
+	.reg .u32 %r<54>;
+	.reg .f32 %f<9>;
+	.reg .pred %p<4>;
+	.loc	16	51	0
+$LDWbegin__Z15MatrixMulKernel6MatrixS_S_:
+$LDWbeginblock_240_1:
+	.loc	16	54	0
+	cvt.s32.u16 	%r1, %tid.y;
+	mov.s32 	%r2, %r1;
+	.loc	16	55	0
+	cvt.s32.u16 	%r3, %tid.x;
+	mov.s32 	%r4, %r3;
+	.loc	16	58	0
+	cvt.s32.u16 	%r5, %ctaid.x;
+	mov.s32 	%r6, %r5;
+	.loc	16	59	0
+	cvt.s32.u16 	%r7, %ctaid.y;
+	mov.s32 	%r8, %r7;
+	.loc	16	61	0
+	mov.s32 	%r9, %r4;
+	mov.s32 	%r10, %r8;
+	cvt.u32.u16 	%r11, %ntid.y;
+	mul.lo.u32 	%r12, %r10, %r11;
+	add.u32 	%r13, %r9, %r12;
+	mov.s32 	%r14, %r13;
+	.loc	16	62	0
+	mov.s32 	%r15, %r2;
+	mov.s32 	%r16, %r6;
+	cvt.u32.u16 	%r17, %ntid.x;
+	mul.lo.u32 	%r18, %r16, %r17;
+	add.u32 	%r19, %r15, %r18;
+	mov.s32 	%r20, %r19;
+	.loc	16	64	0
+	mov.f32 	%f1, 0f00000000;     	// 0
+	mov.f32 	%f2, %f1;
+$LDWbeginblock_240_3:
+	.loc	16	66	0
+	mov.s32 	%r21, 0;
+	mov.s32 	%r22, %r21;
+	mov.s32 	%r23, %r22;
+	mov.u32 	%r24, 15;
+	setp.gt.s32 	%p1, %r23, %r24;
+	@%p1 bra 	$L_0_2306;
+$L_0_2050:
+	.loc	16	68	0
+	mov.f32 	%f3, %f2;
+	ld.param.u32 	%r25, [__cudaparm__Z15MatrixMulKernel6MatrixS_S__M+12];
+	mov.s32 	%r26, %r22;
+	ld.param.u32 	%r27, [__cudaparm__Z15MatrixMulKernel6MatrixS_S__M+0];
+	mov.s32 	%r28, %r14;
+	mul.lo.u32 	%r29, %r27, %r28;
+	add.u32 	%r30, %r26, %r29;
+	mul.lo.u32 	%r31, %r30, 4;
+	add.u32 	%r32, %r25, %r31;
+	ld.global.f32 	%f4, [%r32+0];
+	ld.param.u32 	%r33, [__cudaparm__Z15MatrixMulKernel6MatrixS_S__N+12];
+	mov.s32 	%r34, %r20;
+	ld.param.u32 	%r35, [__cudaparm__Z15MatrixMulKernel6MatrixS_S__N+0];
+	mov.s32 	%r36, %r22;
+	mul.lo.u32 	%r37, %r35, %r36;
+	add.u32 	%r38, %r34, %r37;
+	mul.lo.u32 	%r39, %r38, 4;
+	add.u32 	%r40, %r33, %r39;
+	ld.global.f32 	%f5, [%r40+0];
+	mad.f32 	%f6, %f4, %f5, %f3;
+	mov.f32 	%f2, %f6;
+	.loc	16	66	0
+	mov.s32 	%r41, %r22;
+	add.s32 	%r42, %r41, 1;
+	mov.s32 	%r22, %r42;
+$Lt_0_1282:
+	mov.s32 	%r43, %r22;
+	mov.u32 	%r44, 15;
+	setp.le.s32 	%p2, %r43, %r44;
+	@%p2 bra 	$L_0_2050;
+$L_0_2306:
+$LDWendblock_240_3:
+	.loc	16	70	0
+	mov.f32 	%f7, %f2;
+	ld.param.u32 	%r45, [__cudaparm__Z15MatrixMulKernel6MatrixS_S__P+12];
+	mov.s32 	%r46, %r20;
+	ld.param.u32 	%r47, [__cudaparm__Z15MatrixMulKernel6MatrixS_S__P+0];
+	mov.s32 	%r48, %r14;
+	mul.lo.u32 	%r49, %r47, %r48;
+	add.u32 	%r50, %r46, %r49;
+	mul.lo.u32 	%r51, %r50, 4;
+	add.u32 	%r52, %r45, %r51;
+	st.global.f32 	[%r52+0], %f7;
+$LDWendblock_240_1:
+	.loc	16	71	0
+	exit;
+$LDWend__Z15MatrixMulKernel6MatrixS_S_:
+	} // _Z15MatrixMulKernel6MatrixS_S_
+
+	.entry _Z16MatrixMulKernel26MatrixS_S_ (
+		.param .align 4 .b8 __cudaparm__Z16MatrixMulKernel26MatrixS_S__M[16],
+		.param .align 4 .b8 __cudaparm__Z16MatrixMulKernel26MatrixS_S__N[16],
+		.param .align 4 .b8 __cudaparm__Z16MatrixMulKernel26MatrixS_S__P[16])
+	{
+	.reg .u32 %r<38>;
+	.reg .f32 %f<13>;
+	.reg .pred %p<4>;
+	.loc	16	73	0
+$LDWbegin__Z16MatrixMulKernel26MatrixS_S_:
+$LDWbeginblock_241_1:
+	.loc	16	78	0
+	cvt.s32.u16 	%r1, %tid.y;
+	mov.s32 	%r2, %r1;
+	.loc	16	79	0
+	cvt.s32.u16 	%r3, %tid.x;
+	mov.s32 	%r4, %r3;
+	.loc	16	81	0
+	mov.f32 	%f1, 0f00000000;     	// 0
+	mov.f32 	%f2, %f1;
+$LDWbeginblock_241_3:
+	.loc	16	83	0
+	mov.s32 	%r5, 0;
+	mov.s32 	%r6, %r5;
+	ld.param.u32 	%r7, [__cudaparm__Z16MatrixMulKernel26MatrixS_S__M+0];
+	mov.s32 	%r8, %r6;
+	setp.le.u32 	%p1, %r7, %r8;
+	@%p1 bra 	$L_1_2818;
+$L_1_2562:
+$LDWbeginblock_241_5:
+	.loc	16	85	0
+	ld.param.u32 	%r9, [__cudaparm__Z16MatrixMulKernel26MatrixS_S__M+12];
+	mov.s32 	%r10, %r6;
+	ld.param.u32 	%r11, [__cudaparm__Z16MatrixMulKernel26MatrixS_S__M+0];
+	mov.s32 	%r12, %r2;
+	mul.lo.u32 	%r13, %r11, %r12;
+	add.u32 	%r14, %r10, %r13;
+	mul.lo.u32 	%r15, %r14, 4;
+	add.u32 	%r16, %r9, %r15;
+	ld.global.f32 	%f3, [%r16+0];
+	mov.f32 	%f4, %f3;
+	.loc	16	86	0
+	ld.param.u32 	%r17, [__cudaparm__Z16MatrixMulKernel26MatrixS_S__N+12];
+	mov.s32 	%r18, %r4;
+	ld.param.u32 	%r19, [__cudaparm__Z16MatrixMulKernel26MatrixS_S__N+0];
+	mov.s32 	%r20, %r6;
+	mul.lo.u32 	%r21, %r19, %r20;
+	add.u32 	%r22, %r18, %r21;
+	mul.lo.u32 	%r23, %r22, 4;
+	add.u32 	%r24, %r17, %r23;
+	ld.global.f32 	%f5, [%r24+0];
+	mov.f32 	%f6, %f5;
+	.loc	16	87	0
+	mov.f32 	%f7, %f2;
+	mov.f32 	%f8, %f4;
+	mov.f32 	%f9, %f6;
+	mad.f32 	%f10, %f8, %f9, %f7;
+	mov.f32 	%f2, %f10;
+$LDWendblock_241_5:
+	.loc	16	83	0
+	mov.s32 	%r25, %r6;
+	add.s32 	%r26, %r25, 1;
+	mov.s32 	%r6, %r26;
+$Lt_1_1794:
+	ld.param.u32 	%r27, [__cudaparm__Z16MatrixMulKernel26MatrixS_S__M+0];
+	mov.s32 	%r28, %r6;
+	setp.gt.u32 	%p2, %r27, %r28;
+	@%p2 bra 	$L_1_2562;
+$L_1_2818:
+$LDWendblock_241_3:
+	.loc	16	90	0
+	mov.f32 	%f11, %f2;
+	ld.param.u32 	%r29, [__cudaparm__Z16MatrixMulKernel26MatrixS_S__P+12];
+	mov.s32 	%r30, %r4;
+	ld.param.u32 	%r31, [__cudaparm__Z16MatrixMulKernel26MatrixS_S__N+0];
+	mov.s32 	%r32, %r2;
+	mul.lo.u32 	%r33, %r31, %r32;
+	add.u32 	%r34, %r30, %r33;
+	mul.lo.u32 	%r35, %r34, 4;
+	add.u32 	%r36, %r29, %r35;
+	st.global.f32 	[%r36+0], %f11;
+$LDWendblock_241_1:
+	.loc	16	95	0
+	exit;
+$LDWend__Z16MatrixMulKernel26MatrixS_S_:
+	} // _Z16MatrixMulKernel26MatrixS_S_
+
+
